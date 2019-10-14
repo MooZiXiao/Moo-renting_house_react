@@ -1,3 +1,12 @@
+.swiper{
+  position: relative;
+  .hkSearch{
+    position: absolute;
+    top: 22px;
+    left: 5%;
+    width: 90%;
+  }
+}
 /* 导航开始 */
 .navWrap{
     display: flex;
@@ -12,6 +21,7 @@
         color: #666;
         img{
             width: 50%;
+            margin-bottom: 5px;
         }
     }
 }

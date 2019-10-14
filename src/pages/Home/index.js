@@ -12,6 +12,9 @@ import nav2 from '../../assets/images/nav-2.png'
 import nav3 from '../../assets/images/nav-3.png'
 import nav4 from '../../assets/images/nav-4.png'
 
+import HKSearch from '../../components/HKSearch'
+import index from '../../components/HKSearch';
+
 export default class Home extends Component {
     state = {
         // 轮播图数据
@@ -77,28 +80,30 @@ export default class Home extends Component {
         return (
             <Fragment>
                 {/* 轮播图 */}
-                {this.state.swiperData.length > 0 && <Carousel
-                autoplay
-                infinite
-                >
-                {this.state.swiperData.map(val => (
-                    <a
-                    key={val.id}
-                    href="http://www.alipay.com"
-                    style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+                {this.state.swiperData.length > 0 && <div className={indexCss.swiper}><Carousel
+                    autoplay
+                    infinite
                     >
-                    <img
-                        src={process.env.REACT_APP_API_URL + val.imgSrc}
-                        alt=""
-                        style={{ width: '100%', verticalAlign: 'top' }}
-                        onLoad={() => {
-                        window.dispatchEvent(new Event('resize'));
-                        this.setState({ imgHeight: 'auto' });
-                        }}
-                    />
-                    </a>
-                ))}
-                </Carousel>}
+                    {this.state.swiperData.map(val => (
+                        <a
+                        key={val.id}
+                        href="http://www.alipay.com"
+                        style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+                        >
+                        <img
+                            src={process.env.REACT_APP_API_URL + val.imgSrc}
+                            alt=""
+                            style={{ width: '100%', verticalAlign: 'top' }}
+                            onLoad={() => {
+                            window.dispatchEvent(new Event('resize'));
+                            this.setState({ imgHeight: 'auto' });
+                            }}
+                        />
+                        </a>
+                    ))}
+                    </Carousel>
+                    <div className={indexCss.hkSearch}><HKSearch /></div>
+                </div>}
                 {/* 轮播图结束 */}
                 {/* 导航开始 */}
                 <div className={indexCss.navWrap}>
