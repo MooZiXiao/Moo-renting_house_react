@@ -1,0 +1,16 @@
+.navWrap{
+    display: flex;
+    padding: 10px 0;
+    background-color: #fff;
+    .navItem{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 13px;
+        color: #666;
+        img{
+            width: 50%;
+        }
+    }
+}
