@@ -42,7 +42,9 @@ export default class Home extends Component {
             }
         ],
         // 租房小组数据
-        groupsData: []
+        groupsData: [],
+        // 最新资讯数据
+        newsData: []
     }
     componentDidMount() {
         axios.get('/home/swiper')
@@ -59,6 +61,15 @@ export default class Home extends Component {
             // console.log(res)
             this.setState({
                 groupsData: res.data.body
+            });
+        })
+
+        // 最新资讯
+        axios.get('/home/news?area=AREA%7C88cff55c-aaa4-e2e0')
+        .then(res => {
+            console.log(res)
+            this.setState({
+                newsData: res.data.body
             });
         })
     }
@@ -120,6 +131,29 @@ export default class Home extends Component {
                     }
                 </div>
                 {/* 租房小组数据结束 */}
+                {/* 最新资讯开始 */}
+                <div className={indexCss.newsWrap}>
+                    <div className={indexCss.newsTitle}>最新资讯</div>
+                    {
+                        this.state.newsData.map(v => 
+                            <div className={indexCss.newsItem} key={v.id}>
+                                <div className={indexCss.newsImg}>
+                                    <img src={process.env.REACT_APP_API_URL + v.imgSrc} alt="" />
+                                </div>
+                                <div className={indexCss.newsInfo}>
+                                    <div className={indexCss.infoTitle}>{v.title}</div>
+                                    <div className={indexCss.infoOthers}>
+                                        <span className={indexCss.infoAuthor}>{v.from}</span>
+                                        <span className={indexCss.infoDate}>{v.date}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+                {/* 最新资讯结束 */}
+                {/* 到底提示 */}
+                <div className={indexCss.fotTip}>------ 我是底线 ------</div>
             </Fragment>
         )
     }

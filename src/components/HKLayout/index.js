@@ -16,44 +16,22 @@ class HKLayout extends React.Component {
       <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
         <TabBar
           unselectedTintColor="#949494"
-          tintColor="#33A3F4"
+          tintColor="#21b97a"
           barTintColor="white"
         >
           <TabBar.Item
             title="首页"
             key="Life"
-            icon={<div style={{
-              width: '22px',
-              height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
-            />
-            }
-            selectedIcon={<div style={{
-              width: '22px',
-              height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
-            />
-            }
+            icon={<i className="iconfont icon-ind"></i>}
+            selectedIcon={<i className="iconfont icon-ind"></i>}
             selected={this.props.location.pathname === '/'}
             onPress={() => this.props.history.push('/')}
           >
             { this.props.location.pathname === '/' && this.props.children }
           </TabBar.Item>
           <TabBar.Item
-            icon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat' }}
-              />
-            }
-            selectedIcon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat' }}
-              />
-            }
+            icon={<i className="iconfont icon-findHouse"></i>}
+            selectedIcon={<i className="iconfont icon-findHouse"></i>}
             title="找房"
             key="Koubei"
             selected={this.props.location.pathname === '/List'}
@@ -62,20 +40,8 @@ class HKLayout extends React.Component {
             { this.props.location.pathname === '/List' && this.props.children }
           </TabBar.Item>
           <TabBar.Item
-            icon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat' }}
-              />
-            }
-            selectedIcon={
-              <div style={{
-                width: '22px',
-                height: '22px',
-                background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }}
-              />
-            }
+            icon={<i className="iconfont icon-infom"></i>}
+            selectedIcon={<i className="iconfont icon-infom"></i>}
             title="资讯"
             key="Friend"
             dot
@@ -85,8 +51,8 @@ class HKLayout extends React.Component {
             { this.props.location.pathname === '/News' && this.props.children }
           </TabBar.Item>
           <TabBar.Item
-            icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-            selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+            icon={<i className="iconfont icon-my"></i>}
+            selectedIcon={<i className="iconfont icon-my"></i>}
             title="我的"
             key="my"
             selected={this.props.location.pathname === '/My'}
