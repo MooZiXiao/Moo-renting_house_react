@@ -1,3 +1,4 @@
+/* 导航开始 */
 .navWrap{
     display: flex;
     padding: 10px 0;
@@ -14,3 +15,63 @@
         }
     }
 }
+/* 导航结束 */ 
+
+/* 租房小组开始 */
+.groupsWrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5px 10px;
+    .groupsTitle {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        font-size: 16px;
+      .titleName {
+          font-weight: 600;
+      }
+      .more{
+        color: #666;
+      }
+    }
+  
+    .groupsItem {
+        width: 49%;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        margin-bottom: 10px;
+      .groupsInfo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        .infoName1 {
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #000;
+            font-weight: 600;
+        }
+  
+        .infoName2 {
+            font-size: 12px;
+            color: #999;
+        }
+      }
+  
+      .groupsImg {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        img {
+            width: 70%;
+        }
+      }
+    }
+}
+/* 租房小组结束 */

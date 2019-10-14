@@ -40,7 +40,9 @@ export default class Home extends Component {
                 text: '去出租',
                 imgSrc: nav4
             }
-        ]
+        ],
+        // 租房小组数据
+        groupsData: []
     }
     componentDidMount() {
         axios.get('/home/swiper')
@@ -48,6 +50,15 @@ export default class Home extends Component {
             // console.log(res)
             this.setState({
                 swiperData: res.data.body
+            });
+        })
+
+        // 租房小组
+        axios.get('/home/groups?area=AREA%7C88cff55c-aaa4-e2e0')
+        .then(res => {
+            // console.log(res)
+            this.setState({
+                groupsData: res.data.body
             });
         })
     }
@@ -88,6 +99,27 @@ export default class Home extends Component {
                     }
                 </div>
                 {/* 导航结束 */}
+                {/* 租房小组数据开始 */}
+                <div className={indexCss.groupsWrap}>
+                    <div className={indexCss.groupsTitle}>
+                        <span className={indexCss.titleName}>租房小组</span>
+                        <span className={indexCss.more}>更多</span>
+                    </div>
+                    {
+                        this.state.groupsData.map(v => 
+                            <div className={indexCss.groupsItem} key={v.id}>
+                                <div className={indexCss.groupsInfo}>
+                                    <div className={indexCss.infoName1}>{v.title}</div>
+                                    <div className={indexCss.infoName2}>{v.desc}</div>
+                                </div>
+                                <div className={indexCss.groupsImg}>
+                                    <img src={process.env.REACT_APP_API_URL + v.imgSrc} alt="" />
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+                {/* 租房小组数据结束 */}
             </Fragment>
         )
     }
